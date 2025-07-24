@@ -15,11 +15,11 @@ import ServicesPage from './pages/ServicesPage';
 import ProductsPage from './pages/ProductsPage';
 import GalleryPage from './pages/GalleryPage';
 import ContactPage from './pages/ContactPage';
-import WaterWaveBackground from './components/WaterWaveBackground';
-import EnhancedWaterEffect from './components/EnhancedWaterEffect';
-import ReactWaterWaveComponent from './components/ReactWaterWave';
-import PassiveWaterWave from './components/PassiveWaterWave';
-import CustomWaterWave from './components/CustomWaterWave';
+// import WaterWaveBackground from './components/WaterWaveBackground';
+// import EnhancedWaterEffect from './components/EnhancedWaterEffect';
+// import ReactWaterWaveComponent from './components/ReactWaterWave';
+// import PassiveWaterWave from './components/PassiveWaterWave';
+// import CustomWaterWave from './components/CustomWaterWave';
 import NaturalWaterWave from './components/NaturalWaterWave';
 //import Iridescence from './components/Iridescence';
 
