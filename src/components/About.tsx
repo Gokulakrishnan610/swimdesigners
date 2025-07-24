@@ -61,7 +61,7 @@ const About = () => {
   ];
 
   return (
-    <section className="py-12 sm:py-16 md:py-20 bg-white/70" ref={sectionRef} data-aos="fade-up">
+    <section className="py-12 sm:py-16 md:py-20 bg-transparent" ref={sectionRef} data-aos="fade-up">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-20 left-20 w-32 h-32 border-2 border-blue-500 rounded-full animate-spin-slow"></div>
@@ -76,7 +76,7 @@ const About = () => {
           }`}>
             <div>
               <span className="text-blue-600 font-semibold text-lg animate-fadeInUp">Welcome</span>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mt-2 leading-tight animate-slideInLeft">
+              <h2 className="text-4xl md:text-5xl font-bold text-white mt-2 leading-tight animate-slideInLeft">
                 ENJOY SAFE AND AFFORDABLE
                 <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 animate-gradient">
@@ -86,11 +86,11 @@ const About = () => {
             </div>
 
             <div className="space-y-4 sm:space-y-6">
-              <p className="text-gray-600 text-lg leading-relaxed animate-fadeInUp" style={{ animationDelay: '200ms' }}>
+              <p className="text-white/90 text-lg leading-relaxed animate-fadeInUp" style={{ animationDelay: '200ms' }}>
                 Incorporated in the year 2013, Veni Enterprises is a trusted trader, supplier and service provider of swimming pool spare parts and construction services of swimming pools. Based at Tamil Nadu (India), we have garnered a huge client base by delivering world-class swimming pool services.
               </p>
 
-              <p className="text-gray-600 leading-relaxed animate-fadeInUp" style={{ animationDelay: '400ms' }}>
+              <p className="text-white/80 leading-relaxed animate-fadeInUp" style={{ animationDelay: '400ms' }}>
                 We are offering Swimming Pool Construction Services, swimming pool accessories, Branded water Proofing Materials etc. to our clients spread across the country. We have hired professionals, who have rich on-site construction knowledge and experience that enables us to meet the industrial standards in a significant manner.
               </p>
             </div>
@@ -104,7 +104,7 @@ const About = () => {
                   style={{ animationDelay: `${800 + index * 100}ms` }}
                 >
                   <CheckCircle className="text-green-500 flex-shrink-0 group-hover:animate-pulse" size={20} />
-                  <span className="text-gray-700 group-hover:text-gray-900 transition-colors">{feature}</span>
+                  <span className="text-white/90 group-hover:text-white transition-colors">{feature}</span>
                 </div>
               ))}
             </div>
@@ -126,10 +126,10 @@ const About = () => {
                   <div className={`flex items-center justify-center w-20 h-20 mb-6 rounded-full ${stat.iconBg} bg-white/40 backdrop-blur-md shadow-md`}>
                     <stat.icon size={36} className={`${stat.color}`} />
                   </div>
-                  <div className="text-4xl font-extrabold text-gray-900 mb-2 tracking-tight">
+                  <div className="text-4xl font-extrabold text-white mb-2 tracking-tight">
                     {stat.value}{stat.suffix}
                   </div>
-                  <div className="text-gray-600 text-base font-medium text-center leading-tight">
+                  <div className="text-white/80 text-base font-medium text-center leading-tight">
                     {stat.label}
                   </div>
                 </StarBorder>
