@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import BounceCards from './BounceCards';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const Gallery = () => {
@@ -39,6 +40,22 @@ const Gallery = () => {
     }
   ];
 
+  const images = [
+    "src/assets/gallery/1714984715117326.jpg",
+    "src/assets/gallery/17149796813495914.jpg",
+    "src/assets/gallery/17149847151685227.jpg",
+    "src/assets/gallery/17149847152680625.jpg",
+    "src/assets/gallery/17149847153819823.jpg"
+  ];
+
+  const transformStyles = [
+    "rotate(5deg) translate(-150px)",
+    "rotate(0deg) translate(-70px)",
+    "rotate(-5deg)",
+    "rotate(5deg) translate(70px)",
+    "rotate(-5deg) translate(150px)"
+  ];
+
   const openLightbox = (index: number) => {
     setSelectedImage(index);
   };
@@ -70,31 +87,19 @@ const Gallery = () => {
           <div className="w-24 h-1 bg-blue-600 mx-auto"></div>
         </div>
 
-        {/* Gallery Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {galleryImages.map((image, index) => (
-            <div
-              key={index}
-              className="relative group cursor-pointer overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500"
-              onClick={() => openLightbox(index)}
-            >
-              <img
-                src={image.src}
-                alt={image.alt}
-                className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-300 flex items-center justify-center">
-                <div className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="text-center">
-                    <div className="w-12 h-12 border-2 border-white rounded-full flex items-center justify-center mx-auto mb-2">
-                      <span className="text-xl">+</span>
-                    </div>
-                    <p className="text-sm">View Image</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
+        {/* BounceCards Gallery */}
+        <div className="flex justify-center">
+          <BounceCards
+            className="custom-bounceCards"
+            images={images}
+            containerWidth={500}
+            containerHeight={250}
+            animationDelay={1}
+            animationStagger={0.08}
+            easeType="elastic.out(1, 0.5)"
+            transformStyles={transformStyles}
+            enableHover={true}
+          />
         </div>
 
         {/* Lightbox */}
