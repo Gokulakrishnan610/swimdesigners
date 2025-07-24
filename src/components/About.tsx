@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Award, Users, Clock, Star, CheckCircle } from 'lucide-react';
 import StarBorder from './StarBorder';
-
+import gallery1 from '../assets/gallery/17149847152680625.jpg';
 const About = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [counters, setCounters] = useState({ years: 0, clients: 0, support: 24, quality: 0 });
@@ -143,7 +143,7 @@ const About = () => {
           }`} style={{ animationDelay: '300ms' }}>
             <div className="relative overflow-hidden rounded-3xl shadow-2xl group">
               <img
-                src="src/assets/gallery/17149847152680625.jpg"
+                src={gallery1}
                 alt="Swimming Pool Construction"
                 className="w-full h-96 object-cover group-hover:scale-110 transition-transform duration-700"
               />

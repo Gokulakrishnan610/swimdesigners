@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 import BounceCards from './BounceCards';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
+import gallery1 from '../assets/gallery/1714984715117326.jpg';
+import gallery2 from '../assets/gallery/17149796813495914.jpg';
+import gallery3 from '../assets/gallery/17149847151685227.jpg';
+import gallery4 from '../assets/gallery/17149847152680625.jpg';
+import gallery5 from '../assets/gallery/17149847153819823.jpg';
 
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
@@ -41,11 +46,11 @@ const Gallery = () => {
   ];
 
   const images = [
-    "src/assets/gallery/1714984715117326.jpg",
-    "src/assets/gallery/17149796813495914.jpg",
-    "src/assets/gallery/17149847151685227.jpg",
-    "src/assets/gallery/17149847152680625.jpg",
-    "src/assets/gallery/17149847153819823.jpg"
+    gallery1,
+    gallery2,
+    gallery3,
+    gallery4,
+    gallery5
   ];
 
   const transformStyles = [
