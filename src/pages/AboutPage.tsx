@@ -54,7 +54,7 @@ const AboutPage = () => {
       </section>
 
       {/* Main Content */}
-      <section className="max-w-6xl mx-auto px-4 py-12 grid md:grid-cols-2 gap-10 items-center">
+      <section className="max-w-6xl mx-auto px-4 py-8 sm:py-12 grid md:grid-cols-2 gap-6 md:gap-10 items-center">
         {/* Info Block */}
         <div data-aos="fade-right" data-aos-duration="1200">
           <h2 className="text-2xl md:text-3xl font-bold text-blue-900 mb-4">Who We Are</h2>
@@ -89,7 +89,7 @@ const AboutPage = () => {
       </section>
 
       {/* Additional Info Section */}
-      <section className="max-w-4xl mx-auto px-4 pb-16" data-aos="fade-up" data-aos-duration="1200">
+      <section className="max-w-4xl mx-auto px-4 pb-8 sm:pb-16" data-aos="fade-up" data-aos-duration="1200">
         <h3 className="text-xl md:text-2xl font-bold text-blue-900 mb-4">Domain Expertise</h3>
         <p className="text-gray-700 mb-8 leading-relaxed">
           Serving our clients from different domains enables us to prove our excellence and become the leading service provider among our industrial contemporaries. Owing to our business expertise we specialize in providing excellent results through our designed swimming pools and other products. Understanding exact demands of our clients, our designers and other technicians strive to deliver services as per their requirements to provide optimum satisfaction. From planning, designing, construction and installation, all procedures are followed in a streamlined manner that proves our industrial credibility.
@@ -101,7 +101,7 @@ const AboutPage = () => {
       </section>
 
       {/* Our Products Section */}
-      <section className="max-w-6xl mx-auto px-4 pb-20" data-aos="fade-up" data-aos-duration="1200">
+      <section className="max-w-6xl mx-auto px-4 pb-12 sm:pb-20" data-aos="fade-up" data-aos-duration="1200">
         <h2 className="text-2xl md:text-3xl font-bold text-center text-blue-900 mb-10">Our Products</h2>
         <Slider {...sliderSettings}>
           {imageEntries.map(([path, module], index) => (

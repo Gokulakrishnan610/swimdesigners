@@ -26,10 +26,10 @@ const WhyChoose = () => {
   ];
 
   return (
-    <section className="py-20 bg-white/70" data-aos="fade-up" data-aos-duration="1200">
+    <section className="py-12 sm:py-16 md:py-20 bg-white/70" data-aos="fade-up" data-aos-duration="1200">
       <div className="max-w-7xl mx-auto px-4">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-8 sm:mb-12 md:mb-16">
           <span className="text-blue-600 font-semibold text-lg">Why Choose</span>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mt-4 mb-6">
             WHY CHOOSE SWIMMING POOL

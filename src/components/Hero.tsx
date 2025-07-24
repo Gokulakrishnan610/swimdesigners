@@ -40,7 +40,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative h-screen overflow-hidden" data-aos="fade-up">
+    <section className="relative h-screen overflow-hidden -mt-0" data-aos="fade-up">
       {/* Background Images */}
       {slides.map((slide, index) => (
         <div

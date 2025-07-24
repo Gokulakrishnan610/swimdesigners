@@ -24,9 +24,9 @@ const Header = () => {
   ];
 
   return (
-    <div className="fixed w-full z-50 top-0 left-0 transition-all duration-500">
+    <div className="fixed w-full z-50 top-0 left-0 transition-all duration-500 -mt-0">
       {/* Top Bar */}
-      <div className="bg-blue-900 text-white py-2 px-4 text-sm animate-slideDown">
+      <div className="bg-blue-900 text-white py-1 sm:py-2 px-4 text-sm animate-slideDown">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <div className="flex items-center space-x-4">
             <div className="flex items-center space-x-2 animate-fadeInLeft">
@@ -49,13 +49,13 @@ const Header = () => {
       {/* Main Header */}
       <header className={`w-full transition-all duration-500 ${
         isScrolled
-          ? 'bg-white/30 backdrop-blur-lg border-b border-white/30 shadow-xl py-2'
-          : 'bg-white/30 backdrop-blur-lg border-b border-white/30 shadow-xl py-4'
+          ? 'bg-white/30 backdrop-blur-lg border-b border-white/30 shadow-xl py-1 sm:py-2'
+          : 'bg-white/30 backdrop-blur-lg border-b border-white/30 shadow-xl py-2 sm:py-4'
       }`}>
         <div className="max-w-7xl mx-auto px-4 flex justify-between items-center">
           {/* Logo */}
           <div className="flex items-center animate-fadeInLeft">
-            <img src="/image/pic.png" alt="VENI ENTERPRISES Logo" className="h-16 w-auto object-contain" />
+            <img src="/image/pic.png" alt="VENI ENTERPRISES Logo" className="h-12 sm:h-16 w-auto object-contain" />
           </div>
 
           {/* Desktop Navigation */}

@@ -38,7 +38,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div className="min-h-screen">
+      <div className="min-h-screen -mt-0">
         <div ref={headerRef}>
           <Header />
         </div>

@@ -23,7 +23,7 @@ const Quote = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-r from-blue-900 to-blue-800 relative overflow-hidden" data-aos="fade-up" data-aos-duration="1200">
+    <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-r from-blue-900 to-blue-800 relative overflow-hidden" data-aos="fade-up" data-aos-duration="1200">
       {/* Background Image */}
       <div className="absolute inset-0">
         <img

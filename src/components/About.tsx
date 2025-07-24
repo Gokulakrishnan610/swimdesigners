@@ -61,7 +61,7 @@ const About = () => {
   ];
 
   return (
-    <section className="py-20 bg-white/70" ref={sectionRef} data-aos="fade-up">
+    <section className="py-12 sm:py-16 md:py-20 bg-white/70" ref={sectionRef} data-aos="fade-up">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-20 left-20 w-32 h-32 border-2 border-blue-500 rounded-full animate-spin-slow"></div>
@@ -69,9 +69,9 @@ const About = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Left Content */}
-          <div className={`space-y-8 transform transition-all duration-1000 ${
+          <div className={`space-y-6 sm:space-y-8 transform transition-all duration-1000 ${
             isVisible ? 'translate-x-0 opacity-100' : '-translate-x-20 opacity-0'
           }`}>
             <div>
@@ -85,7 +85,7 @@ const About = () => {
               </h2>
             </div>
 
-            <div className="space-y-6">
+            <div className="space-y-4 sm:space-y-6">
               <p className="text-gray-600 text-lg leading-relaxed animate-fadeInUp" style={{ animationDelay: '200ms' }}>
                 Incorporated in the year 2013, Veni Enterprises is a trusted trader, supplier and service provider of swimming pool spare parts and construction services of swimming pools. Based at Tamil Nadu (India), we have garnered a huge client base by delivering world-class swimming pool services.
               </p>

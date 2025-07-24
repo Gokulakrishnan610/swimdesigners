@@ -34,9 +34,9 @@ const ContactPage = () => {
       </section>
 
       {/* Contact Section */}
-      <section className="max-w-5xl mx-auto px-4 py-12 grid md:grid-cols-2 gap-12 items-start">
+      <section className="max-w-5xl mx-auto px-4 py-8 sm:py-12 grid md:grid-cols-2 gap-6 md:gap-12 items-start">
         {/* Contact Form */}
-        <div className="bg-white rounded-3xl shadow-xl p-8" data-aos="fade-right" data-aos-duration="1200">
+        <div className="bg-white rounded-3xl shadow-xl p-6 sm:p-8" data-aos="fade-right" data-aos-duration="1200">
           <h2 className="text-2xl font-bold text-blue-900 mb-6">Send us a message</h2>
           {submitted ? (
             <div className="text-green-600 font-semibold text-lg">Thank you for contacting us!</div>
@@ -64,7 +64,7 @@ const ContactPage = () => {
         </div>
         {/* Contact Info */}
         <div className="space-y-8" data-aos="fade-left" data-aos-duration="1200">
-          <div className="bg-white rounded-3xl shadow-xl p-8 flex flex-col gap-6">
+          <div className="bg-white rounded-3xl shadow-xl p-6 sm:p-8 flex flex-col gap-6">
             <div className="flex items-center gap-4">
               <MapPin className="text-blue-700" />
               <span className="text-blue-900 font-medium">No: 18, Thiruverkadu Main Road, Opposite RMK Super Market, M.G.R.Puram, Ayapakkam, Chennai - 600077</span>

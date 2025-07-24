@@ -10,11 +10,19 @@
   box-sizing: border-box;
 }
 
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
 body {
   font-family: 'Inter', sans-serif;
   line-height: 1.6;
   color: #333;
   overflow-x: hidden;
+  margin: 0;
+  padding: 0;
 }
 
 html {
@@ -414,6 +422,46 @@ button:focus-visible, a:focus-visible {
   }
   
   .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  /* Remove gaps between sections */
+  section {
+    margin: 0;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+  
+  /* Reduce spacing on mobile */
+  .py-12 {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  
+  .mb-8 {
+    margin-bottom: 1.5rem;
+  }
+  
+  .gap-6 {
+    gap: 1rem;
+  }
+}
+
+/* Additional mobile optimizations */
+@media (max-width: 768px) {
+  /* Remove any default margins */
+  * {
+    margin: 0;
+  }
+  
+  /* Ensure sections are tight */
+  section + section {
+    margin-top: 0;
+  }
+  
+  /* Reduce padding on mobile */
+  .px-4 {
     padding-left: 1rem;
     padding-right: 1rem;
   }
