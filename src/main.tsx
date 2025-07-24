@@ -1,19 +1,26 @@
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import App from './App.tsx'
+import './index.css'
 import 'aos/dist/aos.css';
 import AOS from 'aos';
-import { StrictMode, useEffect } from 'react';
-import { createRoot } from 'react-dom/client';
-import App from './App.tsx';
-import './index.css';
+
+// Import jQuery and jQuery.ripples
+import $ from 'jquery';
+import 'jquery.ripples';
+
+// Make jQuery available globally
+(window as any).$ = $;
 
 function Main() {
-  useEffect(() => {
+  React.useEffect(() => {
     AOS.init({ once: true });
   }, []);
   return <App />;
 }
 
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
+ReactDOM.createRoot(document.getElementById('root')!).render(
+  <React.StrictMode>
     <Main />
-  </StrictMode>
-);
+  </React.StrictMode>,
+)

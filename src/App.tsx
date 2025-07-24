@@ -16,6 +16,11 @@ import ProductsPage from './pages/ProductsPage';
 import GalleryPage from './pages/GalleryPage';
 import ContactPage from './pages/ContactPage';
 import WaterWaveBackground from './components/WaterWaveBackground';
+import EnhancedWaterEffect from './components/EnhancedWaterEffect';
+import ReactWaterWaveComponent from './components/ReactWaterWave';
+import PassiveWaterWave from './components/PassiveWaterWave';
+import CustomWaterWave from './components/CustomWaterWave';
+import NaturalWaterWave from './components/NaturalWaterWave';
 //import Iridescence from './components/Iridescence';
 
 function App() {
@@ -48,11 +53,17 @@ function App() {
           <Route path="/" element={
             <>
               <Hero />
-              {/* Water Wave Background */}
+              {/* Natural Water Wave with jQuery.ripples */}
               <div className="fixed inset-0 -z-10 w-full h-full">
-                <WaterWaveBackground>
+                <NaturalWaterWave
+                  dropRadius={40}
+                  perturbance={0.08}
+                  resolution={1024}
+                  interactive={true}
+                  crossOrigin=""
+                >
                   <div className="w-full h-full" />
-                </WaterWaveBackground>
+                </NaturalWaterWave>
               </div>
               <About />
               <Services />

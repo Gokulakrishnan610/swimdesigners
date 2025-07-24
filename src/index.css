@@ -39,12 +39,12 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(135deg, #3b82f6, #06b6d4);
+  background: linear-gradient(135deg, #2563eb, #06b6d4);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(135deg, #2563eb, #0891b2);
+  background: linear-gradient(135deg, #1d4ed8, #0891b2);
 }
 
 /* Enhanced Animation classes */
@@ -298,7 +298,7 @@ html {
 
 /* Gradient text */
 .gradient-text {
-  background: linear-gradient(135deg, #3b82f6, #06b6d4);
+  background: linear-gradient(135deg, #2563eb, #06b6d4);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -368,7 +368,7 @@ html {
 /* Glowing border effect */
 .glow-border {
   position: relative;
-  background: linear-gradient(45deg, #3b82f6, #06b6d4, #8b5cf6, #f59e0b);
+  background: linear-gradient(45deg, #2563eb, #06b6d4, #8b5cf6, #f59e0b);
   background-size: 400% 400%;
   animation: gradient 4s ease infinite;
 }
@@ -419,7 +419,7 @@ button, a, .interactive {
 
 /* Focus styles for accessibility */
 button:focus-visible, a:focus-visible {
-  outline: 2px solid #3b82f6;
+  outline: 2px solid #2563eb;
   outline-offset: 2px;
 }
 
@@ -548,4 +548,128 @@ button:focus-visible, a:focus-visible {
 
 .animate-ripple {
   animation: ripple 3s ease-out infinite;
+}
+
+/* Interactive water effects */
+@keyframes water-ripple {
+  0% {
+    transform: scale(0);
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
+
+.animate-water-ripple {
+  animation: water-ripple 2s ease-out forwards;
+}
+
+@keyframes water-disturbance {
+  0%, 100% {
+    transform: translateX(0) translateY(0) scale(1);
+  }
+  25% {
+    transform: translateX(2px) translateY(-1px) scale(1.02);
+  }
+  50% {
+    transform: translateX(-1px) translateY(2px) scale(0.98);
+  }
+  75% {
+    transform: translateX(-2px) translateY(-1px) scale(1.01);
+  }
+}
+
+.animate-water-disturbance {
+  animation: water-disturbance 0.5s ease-in-out;
+}
+
+@keyframes cursor-glow {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(37, 99, 235, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(37, 99, 235, 0.6);
+  }
+}
+
+.animate-cursor-glow {
+  animation: cursor-glow 2s ease-in-out infinite;
+}
+
+/* Touch ripple effect */
+@keyframes touch-ripple {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+.animate-touch-ripple {
+  animation: touch-ripple 0.6s ease-out forwards;
+}
+
+/* jQuery.ripples enhanced effects */
+@keyframes water-surface {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-2px) scale(1.01);
+  }
+}
+
+.animate-water-surface {
+  animation: water-surface 4s ease-in-out infinite;
+}
+
+@keyframes ripple-echo {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+}
+
+.animate-ripple-echo {
+  animation: ripple-echo 2s ease-out infinite;
+}
+
+/* Enhanced cursor for jQuery.ripples */
+@keyframes cursor-ripple {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(37, 99, 235, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(37, 99, 235, 0.6), 0 0 30px rgba(6, 182, 212, 0.4);
+  }
+}
+
+.animate-cursor-ripple {
+  animation: cursor-ripple 2s ease-in-out infinite;
+}
+
+/* Water ripple background */
+.water-background {
+  background-image: url('/image/back.png') !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  width: 100% !important;
+  height: 100% !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  z-index: -2 !important;
 }
