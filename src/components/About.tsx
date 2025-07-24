@@ -110,23 +110,23 @@ const About = () => {
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 pt-8">
+            <div className="grid grid-cols-2 gap-4 sm:gap-6 pt-8">
               {[
                 { icon: Award, value: counters.years, suffix: '+', label: 'Years Experience', color: 'text-blue-600', iconBg: 'bg-blue-100' },
                 { icon: Users, value: counters.clients, suffix: '+', label: 'Happy Clients', color: 'text-green-600', iconBg: 'bg-green-100' },
                 { icon: Clock, value: counters.support, suffix: '/7', label: 'Support', color: 'text-purple-600', iconBg: 'bg-purple-100' },
                 { icon: Star, value: counters.quality, suffix: '%', label: 'Quality', color: 'text-yellow-600', iconBg: 'bg-yellow-100' }
               ].map((stat, index) => (
-                <div key={index} className="w-full">
+                <div key={index} className="flex justify-center">
                   <StarBorder
-                    className="w-full flex flex-col items-center justify-center h-[200px] sm:h-[240px] px-4 py-6 rounded-3xl shadow-xl border-none bg-transparent group transition-all duration-300 hover:scale-105"
+                    className="w-[200px] h-[250px] sm:w-[220px] sm:h-[280px] flex flex-col items-center justify-center px-4 py-6 rounded-3xl shadow-xl border-none bg-transparent group transition-all duration-300 hover:scale-105"
                     color="#60a5fa"
                     speed="8s"
                   >
                     <div className={`flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 mb-4 sm:mb-6 rounded-full ${stat.iconBg} bg-white/40 backdrop-blur-md shadow-md`}>
-                      <stat.icon size={28} className={`${stat.color} sm:w-9 sm:h-9`} />
+                      <stat.icon size={28} className={`${stat.color} sm:w-8 sm:h-8`} />
                     </div>
-                    <div className="text-3xl sm:text-4xl font-extrabold text-white mb-2 tracking-tight">
+                    <div className="text-3xl sm:text-4xl font-extrabold text-white mb-2 sm:mb-3 tracking-tight">
                       {stat.value}{stat.suffix}
                     </div>
                     <div className="text-white/80 text-sm sm:text-base font-medium text-center leading-tight px-2">
