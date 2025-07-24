@@ -10,6 +10,19 @@ interface NaturalWaterWaveProps {
   crossOrigin?: string;
 }
 
+const getResponsiveRipplesConfig = () => {
+  const isMobile = typeof window !== 'undefined' && window.innerWidth <= 600;
+  return {
+    dropRadius: isMobile ? 15 : 25,
+    perturbance: isMobile ? 0.03 : 0.04,
+    resolution: isMobile ? 256 : 512,
+    dropMinRadius: isMobile ? 10 : 15,
+    dropMaxRadius: isMobile ? 30 : 60,
+    dropFrequency: isMobile ? 6 : 10,
+    dropAnimationDuration: isMobile ? 1200 : 2000,
+  };
+};
+
 const NaturalWaterWave: React.FC<NaturalWaterWaveProps> = ({ 
   children, 
   className = "",
@@ -30,6 +43,21 @@ const NaturalWaterWave: React.FC<NaturalWaterWaveProps> = ({
 
   // Use public path for the background image
   const backImage = '/image/back.png';
+
+  // Responsive container style
+  const [dimensions, setDimensions] = useState({ width: window.innerWidth, height: window.innerHeight });
+
+  useEffect(() => {
+    const handleResize = () => {
+      setDimensions({ width: window.innerWidth, height: window.innerHeight });
+    };
+    window.addEventListener('resize', handleResize);
+    window.addEventListener('orientationchange', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('orientationchange', handleResize);
+    };
+  }, []);
 
   // Initialize jQuery.ripples with passive event listeners
   useEffect(() => {
@@ -148,17 +176,18 @@ const NaturalWaterWave: React.FC<NaturalWaterWaveProps> = ({
       element.style.zIndex = '-2';
 
       try {
+        const config = getResponsiveRipplesConfig();
         $element.ripples({
           imageUrl: backImage,
-          dropRadius: 25, // Smaller drops (40 -> 25)
-          perturbance: 0.04, // Lower perturbance (0.08 -> 0.04)
-          resolution: 512, // Lower resolution (1024 -> 512)
+          dropRadius: config.dropRadius,
+          perturbance: config.perturbance,
+          resolution: config.resolution,
           interactive: interactive,
           crossOrigin: crossOrigin,
-          dropMinRadius: 15, // Smaller min radius (20 -> 15)
-          dropMaxRadius: 60, // Smaller max radius (100 -> 60)
-          dropFrequency: 10, // Lower frequency (20 -> 10)
-          dropAnimationDuration: 2000, // Shorter animation (3000 -> 2000)
+          dropMinRadius: config.dropMinRadius,
+          dropMaxRadius: config.dropMaxRadius,
+          dropFrequency: config.dropFrequency,
+          dropAnimationDuration: config.dropAnimationDuration,
         });
         
         ripplesInstance.current = $element.data('ripples');
@@ -391,14 +420,17 @@ const NaturalWaterWave: React.FC<NaturalWaterWaveProps> = ({
   return (
     <div 
       ref={containerRef}
-      className={`w-full h-full relative overflow-hidden cursor-none ${className}`}
+      className={`w-full h-full fixed inset-0 -z-10 overflow-hidden cursor-none ${className}`}
       onClick={handleClick}
       style={{
-        // Add CSS properties to improve touch handling
+        width: '100vw',
+        height: '100vh',
+        minHeight: dimensions.height,
+        minWidth: dimensions.width,
         touchAction: 'manipulation',
         WebkitTouchCallout: 'none',
         WebkitUserSelect: 'none',
-        userSelect: 'none'
+        userSelect: 'none',
       }}
     >
       {/* Debug info */}
