@@ -77,15 +77,15 @@ const Hero = () => {
       {/* Navigation Arrows */}
       <button 
         onClick={prevSlide}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white/20 backdrop-blur-sm text-white p-4 rounded-full hover:bg-white/30 transition-all duration-300 hover:scale-110 transform hover:rotate-12 group"
+        className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-10 bg-white/20 backdrop-blur-sm text-white p-2 sm:p-4 rounded-full hover:bg-white/30 transition-all duration-300 hover:scale-110 transform hover:rotate-12 group"
       >
-        <ChevronLeft size={24} className="group-hover:animate-pulse" />
+        <ChevronLeft size={20} className="sm:w-6 sm:h-6 group-hover:animate-pulse" />
       </button>
       <button 
         onClick={nextSlide}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white/20 backdrop-blur-sm text-white p-4 rounded-full hover:bg-white/30 transition-all duration-300 hover:scale-110 transform hover:-rotate-12 group"
+        className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-10 bg-white/20 backdrop-blur-sm text-white p-2 sm:p-4 rounded-full hover:bg-white/30 transition-all duration-300 hover:scale-110 transform hover:-rotate-12 group"
       >
-        <ChevronRight size={24} className="group-hover:animate-pulse" />
+        <ChevronRight size={20} className="sm:w-6 sm:h-6 group-hover:animate-pulse" />
       </button>
 
       {/* Content */}

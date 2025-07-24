@@ -34,7 +34,7 @@ const Quote = () => {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left Content */}
           <div className="text-white">
             <span className="text-cyan-300 font-semibold text-lg">Products Offered</span>
@@ -54,7 +54,7 @@ const Quote = () => {
           </div>
 
           {/* Right Content - Quote Form */}
-          <div className="bg-white rounded-2xl p-8 shadow-2xl">
+          <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-2xl">
             <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
               GET A FREE QUOTE
             </h3>

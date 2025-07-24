@@ -110,7 +110,7 @@ const About = () => {
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-4 pt-8">
               {[
                 { icon: Award, value: counters.years, suffix: '+', label: 'Years Experience', color: 'text-blue-600', iconBg: 'bg-blue-100' },
                 { icon: Users, value: counters.clients, suffix: '+', label: 'Happy Clients', color: 'text-green-600', iconBg: 'bg-green-100' },
@@ -119,7 +119,7 @@ const About = () => {
               ].map((stat, index) => (
                 <StarBorder
                   key={index}
-                  className="flex flex-col items-center justify-center min-h-[260px] min-w-[180px] px-6 py-8 rounded-3xl shadow-xl border-none bg-transparent group transition-all duration-300 hover:scale-105 mx-4"
+                  className="flex flex-col items-center justify-center min-h-[200px] sm:min-h-[260px] min-w-[140px] sm:min-w-[180px] px-3 sm:px-6 py-6 sm:py-8 rounded-3xl shadow-xl border-none bg-transparent group transition-all duration-300 hover:scale-105 mx-2 sm:mx-4"
                   color="#60a5fa"
                   speed="8s"
                 >
