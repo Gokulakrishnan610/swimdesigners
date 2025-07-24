@@ -48,7 +48,7 @@ const StarBorder = <T extends React.ElementType = "button">({
       {/* Inner border for double border effect */}
       <div className="absolute inset-1 rounded-2xl border border-white/30 pointer-events-none z-0"></div>
       {/* Card content */}
-      <div className="relative z-10 bg-white/20 backdrop-blur-md text-gray-900 text-center text-[16px] py-[32px] px-[26px] rounded-2xl flex flex-col items-center justify-center min-h-[196px]">
+      <div className="relative z-10 bg-white/20 backdrop-blur-md text-gray-900 text-center text-[16px] py-[32px] px-[26px] rounded-2xl flex flex-col items-center justify-center">
         {children}
       </div>
     </Component>

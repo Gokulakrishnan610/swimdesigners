@@ -110,29 +110,30 @@ const About = () => {
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-4 pt-8">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 pt-8">
               {[
                 { icon: Award, value: counters.years, suffix: '+', label: 'Years Experience', color: 'text-blue-600', iconBg: 'bg-blue-100' },
                 { icon: Users, value: counters.clients, suffix: '+', label: 'Happy Clients', color: 'text-green-600', iconBg: 'bg-green-100' },
                 { icon: Clock, value: counters.support, suffix: '/7', label: 'Support', color: 'text-purple-600', iconBg: 'bg-purple-100' },
                 { icon: Star, value: counters.quality, suffix: '%', label: 'Quality', color: 'text-yellow-600', iconBg: 'bg-yellow-100' }
               ].map((stat, index) => (
-                <StarBorder
-                  key={index}
-                  className="flex flex-col items-center justify-center min-h-[200px] sm:min-h-[260px] min-w-[140px] sm:min-w-[180px] px-3 sm:px-6 py-6 sm:py-8 rounded-3xl shadow-xl border-none bg-transparent group transition-all duration-300 hover:scale-105 mx-2 sm:mx-4"
-                  color="#60a5fa"
-                  speed="8s"
-                >
-                  <div className={`flex items-center justify-center w-20 h-20 mb-6 rounded-full ${stat.iconBg} bg-white/40 backdrop-blur-md shadow-md`}>
-                    <stat.icon size={36} className={`${stat.color}`} />
-                  </div>
-                  <div className="text-4xl font-extrabold text-white mb-2 tracking-tight">
-                    {stat.value}{stat.suffix}
-                  </div>
-                  <div className="text-white/80 text-base font-medium text-center leading-tight">
-                    {stat.label}
-                  </div>
-                </StarBorder>
+                <div key={index} className="w-full">
+                  <StarBorder
+                    className="w-full flex flex-col items-center justify-center h-[200px] sm:h-[240px] px-4 py-6 rounded-3xl shadow-xl border-none bg-transparent group transition-all duration-300 hover:scale-105"
+                    color="#60a5fa"
+                    speed="8s"
+                  >
+                    <div className={`flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 mb-4 sm:mb-6 rounded-full ${stat.iconBg} bg-white/40 backdrop-blur-md shadow-md`}>
+                      <stat.icon size={28} className={`${stat.color} sm:w-9 sm:h-9`} />
+                    </div>
+                    <div className="text-3xl sm:text-4xl font-extrabold text-white mb-2 tracking-tight">
+                      {stat.value}{stat.suffix}
+                    </div>
+                    <div className="text-white/80 text-sm sm:text-base font-medium text-center leading-tight px-2">
+                      {stat.label}
+                    </div>
+                  </StarBorder>
+                </div>
               ))}
             </div>
           </div>
