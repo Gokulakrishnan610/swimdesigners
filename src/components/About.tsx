@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Award, Users, Clock, Star, CheckCircle } from 'lucide-react';
+import StarBorder from './StarBorder';
 
 const About = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -60,7 +61,7 @@ const About = () => {
   ];
 
   return (
-    <section className="py-20 bg-white" ref={sectionRef} data-aos="fade-up">
+    <section className="py-20 bg-white/70" ref={sectionRef} data-aos="fade-up">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-20 left-20 w-32 h-32 border-2 border-blue-500 rounded-full animate-spin-slow"></div>
@@ -109,26 +110,29 @@ const About = () => {
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-8">
               {[
-                { icon: Award, value: counters.years, suffix: '+', label: 'Years Experience', color: 'text-blue-600' },
-                { icon: Users, value: counters.clients, suffix: '+', label: 'Happy Clients', color: 'text-green-600' },
-                { icon: Clock, value: counters.support, suffix: '/7', label: 'Support', color: 'text-purple-600' },
-                { icon: Star, value: counters.quality, suffix: '%', label: 'Quality', color: 'text-yellow-600' }
+                { icon: Award, value: counters.years, suffix: '+', label: 'Years Experience', color: 'text-blue-600', iconBg: 'bg-blue-100' },
+                { icon: Users, value: counters.clients, suffix: '+', label: 'Happy Clients', color: 'text-green-600', iconBg: 'bg-green-100' },
+                { icon: Clock, value: counters.support, suffix: '/7', label: 'Support', color: 'text-purple-600', iconBg: 'bg-purple-100' },
+                { icon: Star, value: counters.quality, suffix: '%', label: 'Quality', color: 'text-yellow-600', iconBg: 'bg-yellow-100' }
               ].map((stat, index) => (
-                <div 
+                <StarBorder
                   key={index}
-                  className="text-center group hover:bg-white hover:shadow-xl p-6 rounded-2xl transition-all duration-500 transform hover:scale-110 hover:-translate-y-2"
-                  style={{ animationDelay: `${1000 + index * 150}ms` }}
+                  className="flex flex-col items-center justify-center min-h-[260px] min-w-[180px] px-6 py-8 rounded-3xl shadow-xl border-none bg-transparent group transition-all duration-300 hover:scale-105 mx-4"
+                  color="#60a5fa"
+                  speed="8s"
                 >
-                  <div className={`${stat.color} w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 bg-gradient-to-br from-gray-100 to-gray-200 group-hover:from-blue-50 group-hover:to-cyan-50 transition-all duration-300 group-hover:animate-pulse`}>
-                    <stat.icon size={24} />
+                  <div className={`flex items-center justify-center w-20 h-20 mb-6 rounded-full ${stat.iconBg} bg-white/40 backdrop-blur-md shadow-md`}>
+                    <stat.icon size={36} className={`${stat.color}`} />
                   </div>
-                  <div className="text-3xl font-bold text-gray-900 mb-2">
+                  <div className="text-4xl font-extrabold text-gray-900 mb-2 tracking-tight">
                     {stat.value}{stat.suffix}
                   </div>
-                  <div className="text-gray-600 text-sm font-medium">{stat.label}</div>
-                </div>
+                  <div className="text-gray-600 text-base font-medium text-center leading-tight">
+                    {stat.label}
+                  </div>
+                </StarBorder>
               ))}
             </div>
           </div>
@@ -139,7 +143,7 @@ const About = () => {
           }`} style={{ animationDelay: '300ms' }}>
             <div className="relative overflow-hidden rounded-3xl shadow-2xl group">
               <img
-                src="https://images.pexels.com/photos/1001965/pexels-photo-1001965.jpeg?auto=compress&cs=tinysrgb&w=800"
+                src="src/assets/gallery/17149847152680625.jpg"
                 alt="Swimming Pool Construction"
                 className="w-full h-96 object-cover group-hover:scale-110 transition-transform duration-700"
               />

@@ -15,6 +15,7 @@ import ServicesPage from './pages/ServicesPage';
 import ProductsPage from './pages/ProductsPage';
 import GalleryPage from './pages/GalleryPage';
 import ContactPage from './pages/ContactPage';
+import Iridescence from './components/Iridescence';
 
 function App() {
   const headerRef = useRef<HTMLDivElement>(null);
@@ -46,6 +47,10 @@ function App() {
           <Route path="/" element={
             <>
               <Hero />
+              {/* Iridescence background (not behind Hero) */}
+              <div className="fixed inset-0 -z-10 w-full h-full">
+                <Iridescence color={[1,1,1]} mouseReact={false} amplitude={0.1} speed={1.0} />
+              </div>
               <About />
               <Services />
               <Gallery />

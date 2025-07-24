@@ -26,7 +26,7 @@ const WhyChoose = () => {
   ];
 
   return (
-    <section className="py-20 bg-white" data-aos="fade-up" data-aos-duration="1200">
+    <section className="py-20 bg-white/70" data-aos="fade-up" data-aos-duration="1200">
       <div className="max-w-7xl mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16">
@@ -42,7 +42,7 @@ const WhyChoose = () => {
           {features.map((feature, index) => (
             <div
               key={index}
-              className="text-center group hover:bg-blue-50 p-8 rounded-2xl transition-all duration-300"
+              className="text-center group p-8 rounded-2xl transition-all duration-300 bg-white/30 backdrop-blur-md border border-white/30 shadow-lg hover:shadow-2xl hover:bg-white/40"
             >
               {/* Icon */}
               <div className="text-blue-600 mb-6 flex justify-center group-hover:scale-110 transition-transform duration-300">

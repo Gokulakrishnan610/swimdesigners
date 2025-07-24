@@ -21,7 +21,7 @@ const Products = () => {
   ];
 
   return (
-    <section className="py-20 bg-gray-50" data-aos="fade-up" data-aos-duration="1200">
+    <section className="py-20 bg-white/70" data-aos="fade-up" data-aos-duration="1200">
       <div className="max-w-7xl mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16">
