@@ -23,7 +23,7 @@ const Quote = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-r from-blue-900 to-blue-800 relative overflow-hidden" data-aos="fade-up" data-aos-duration="1200">
+    <section className="py-12 sm:py-20 bg-gradient-to-r from-blue-900 to-blue-800 relative overflow-hidden" data-aos="fade-up" data-aos-duration="1200">
       {/* Background Image */}
       <div className="absolute inset-0">
         <img
@@ -33,33 +33,33 @@ const Quote = () => {
         />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-2 sm:px-4">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
           {/* Left Content */}
           <div className="text-white">
-            <span className="text-cyan-300 font-semibold text-lg">Products Offered</span>
-            <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-8 leading-tight">
+            <span className="text-cyan-300 font-semibold text-base sm:text-lg">Products Offered</span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mt-2 sm:mt-4 mb-6 sm:mb-8 leading-tight">
               WE PROVIDE THE BEST POOL SERVICE FOR
               <br />
               <span className="text-cyan-300">YOUR DAILY LIFE STYLE!</span>
             </h2>
             
-            <p className="text-white/90 text-lg leading-relaxed mb-8">
+            <p className="text-white/90 text-base sm:text-lg leading-relaxed mb-6 sm:mb-8">
               We are backed by a robust infrastructural base, which gives our professionals a number of facilities to keep smooth activities within the organization. With all infrastructural units at our support, procurement, quality testing, delivering and construction services are done in an uninterrupted manner.
             </p>
 
-            <p className="text-white/80 leading-relaxed">
+            <p className="text-white/80 leading-relaxed text-sm sm:text-base">
               Also, all procured goods are tested for possessing required attributes to avoid any error on our part. Working under the supervision of our quality controllers, we have given optimum level of satisfaction to our valued clients.
             </p>
           </div>
 
           {/* Right Content - Quote Form */}
-          <div className="bg-white rounded-2xl p-8 shadow-2xl">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
+          <div className="bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-2xl">
+            <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6 text-center">
               GET A FREE QUOTE
             </h3>
 
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
               <div>
                 <input
                   type="text"
@@ -67,7 +67,7 @@ const Quote = () => {
                   placeholder="Enter Name"
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                  className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 text-sm sm:text-base"
                   required
                 />
               </div>
@@ -79,7 +79,7 @@ const Quote = () => {
                   placeholder="Enter Mobile"
                   value={formData.mobile}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                  className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 text-sm sm:text-base"
                   required
                 />
               </div>
@@ -91,7 +91,7 @@ const Quote = () => {
                   placeholder="Enter Email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                  className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 text-sm sm:text-base"
                   required
                 />
               </div>
@@ -103,17 +103,17 @@ const Quote = () => {
                   rows={4}
                   value={formData.message}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 resize-none"
+                  className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 resize-none text-sm sm:text-base"
                   required
                 ></textarea>
               </div>
 
               <button
                 type="submit"
-                className="w-full bg-blue-900 text-white py-4 rounded-lg font-semibold hover:bg-blue-800 transition-all duration-300 flex items-center justify-center space-x-2 hover:scale-105"
+                className="w-full bg-blue-900 text-white py-3 sm:py-4 rounded-lg font-semibold hover:bg-blue-800 hover:shadow-lg transition-all duration-300 flex items-center justify-center space-x-2 hover:scale-105 text-sm sm:text-base"
               >
                 <span>SUBMIT</span>
-                <Send size={20} />
+                <Send size={16} className="sm:w-5 sm:h-5" />
               </button>
             </form>
           </div>

@@ -61,22 +61,22 @@ const About = () => {
   ];
 
   return (
-    <section className="py-20 bg-white/70" ref={sectionRef} data-aos="fade-up">
+    <section className="py-12 sm:py-20 bg-white/70" ref={sectionRef} data-aos="fade-up">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-20 left-20 w-32 h-32 border-2 border-blue-500 rounded-full animate-spin-slow"></div>
         <div className="absolute bottom-20 right-20 w-24 h-24 border-2 border-cyan-500 rounded-full animate-spin-slow" style={{ animationDirection: 'reverse' }}></div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+      <div className="max-w-7xl mx-auto px-2 sm:px-4 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-16 items-center">
           {/* Left Content */}
-          <div className={`space-y-8 transform transition-all duration-1000 ${
+          <div className={`space-y-6 sm:space-y-8 transform transition-all duration-1000 ${
             isVisible ? 'translate-x-0 opacity-100' : '-translate-x-20 opacity-0'
           }`}>
             <div>
-              <span className="text-blue-600 font-semibold text-lg animate-fadeInUp">Welcome</span>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mt-2 leading-tight animate-slideInLeft">
+              <span className="text-blue-600 font-semibold text-base sm:text-lg animate-fadeInUp">Welcome</span>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mt-2 leading-tight animate-slideInLeft">
                 ENJOY SAFE AND AFFORDABLE
                 <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 animate-gradient">
@@ -85,32 +85,32 @@ const About = () => {
               </h2>
             </div>
 
-            <div className="space-y-6">
-              <p className="text-gray-600 text-lg leading-relaxed animate-fadeInUp" style={{ animationDelay: '200ms' }}>
+            <div className="space-y-4 sm:space-y-6">
+              <p className="text-gray-600 text-base sm:text-lg leading-relaxed animate-fadeInUp" style={{ animationDelay: '200ms' }}>
                 Incorporated in the year 2013, Veni Enterprises is a trusted trader, supplier and service provider of swimming pool spare parts and construction services of swimming pools. Based at Tamil Nadu (India), we have garnered a huge client base by delivering world-class swimming pool services.
               </p>
 
-              <p className="text-gray-600 leading-relaxed animate-fadeInUp" style={{ animationDelay: '400ms' }}>
+              <p className="text-gray-600 text-sm sm:text-base leading-relaxed animate-fadeInUp" style={{ animationDelay: '400ms' }}>
                 We are offering Swimming Pool Construction Services, swimming pool accessories, Branded water Proofing Materials etc. to our clients spread across the country. We have hired professionals, who have rich on-site construction knowledge and experience that enables us to meet the industrial standards in a significant manner.
               </p>
             </div>
 
             {/* Features List */}
-            <div className="grid md:grid-cols-2 gap-4 animate-fadeInUp" style={{ animationDelay: '600ms' }}>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 animate-fadeInUp" style={{ animationDelay: '600ms' }}>
               {features.map((feature, index) => (
                 <div 
                   key={index}
-                  className="flex items-center space-x-3 group hover:bg-white hover:shadow-lg p-3 rounded-lg transition-all duration-300 transform hover:scale-105"
+                  className="flex items-center space-x-3 group hover:bg-white hover:shadow-lg p-2 sm:p-3 rounded-lg transition-all duration-300 transform hover:scale-105"
                   style={{ animationDelay: `${800 + index * 100}ms` }}
                 >
-                  <CheckCircle className="text-green-500 flex-shrink-0 group-hover:animate-pulse" size={20} />
-                  <span className="text-gray-700 group-hover:text-gray-900 transition-colors">{feature}</span>
+                  <CheckCircle className="text-green-500 flex-shrink-0 group-hover:animate-pulse sm:w-5 sm:h-5" size={18} />
+                  <span className="text-gray-700 group-hover:text-gray-900 transition-colors text-sm sm:text-base">{feature}</span>
                 </div>
               ))}
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-8">
+            <div className="grid grid-cols-2 gap-3 sm:gap-4 pt-6 sm:pt-8">
               {[
                 { icon: Award, value: counters.years, suffix: '+', label: 'Years Experience', color: 'text-blue-600', iconBg: 'bg-blue-100' },
                 { icon: Users, value: counters.clients, suffix: '+', label: 'Happy Clients', color: 'text-green-600', iconBg: 'bg-green-100' },
@@ -119,17 +119,17 @@ const About = () => {
               ].map((stat, index) => (
                 <StarBorder
                   key={index}
-                  className="flex flex-col items-center justify-center min-h-[260px] min-w-[180px] px-6 py-8 rounded-3xl shadow-xl border-none bg-transparent group transition-all duration-300 hover:scale-105 mx-4"
+                  className="flex flex-col items-center justify-center min-h-[180px] sm:min-h-[220px] lg:min-h-[260px] min-w-[140px] sm:min-w-[160px] lg:min-w-[180px] px-3 sm:px-6 py-4 sm:py-8 rounded-2xl sm:rounded-3xl shadow-xl border-none bg-transparent group transition-all duration-300 hover:scale-105 hover:shadow-2xl mx-2 sm:mx-4 cursor-pointer"
                   color="#60a5fa"
                   speed="8s"
                 >
-                  <div className={`flex items-center justify-center w-20 h-20 mb-6 rounded-full ${stat.iconBg} bg-white/40 backdrop-blur-md shadow-md`}>
-                    <stat.icon size={36} className={`${stat.color}`} />
+                  <div className={`flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 mb-4 sm:mb-6 rounded-full ${stat.iconBg} bg-white/40 backdrop-blur-md shadow-md`}>
+                    <stat.icon size={24} className={`${stat.color} sm:w-9 sm:h-9 lg:w-9 lg:h-9`} />
                   </div>
-                  <div className="text-4xl font-extrabold text-gray-900 mb-2 tracking-tight">
+                  <div className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-gray-900 mb-1 sm:mb-2 tracking-tight">
                     {stat.value}{stat.suffix}
                   </div>
-                  <div className="text-gray-600 text-base font-medium text-center leading-tight">
+                  <div className="text-gray-600 text-xs sm:text-sm lg:text-base font-medium text-center leading-tight">
                     {stat.label}
                   </div>
                 </StarBorder>
@@ -141,32 +141,32 @@ const About = () => {
           <div className={`relative transform transition-all duration-1000 ${
             isVisible ? 'translate-x-0 opacity-100' : 'translate-x-20 opacity-0'
           }`} style={{ animationDelay: '300ms' }}>
-            <div className="relative overflow-hidden rounded-3xl shadow-2xl group">
+            <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl shadow-2xl group">
               <img
                 src="src/assets/gallery/17149847152680625.jpg"
                 alt="Swimming Pool Construction"
-                className="w-full h-96 object-cover group-hover:scale-110 transition-transform duration-700"
+                className="w-full h-64 sm:h-80 lg:h-96 object-cover group-hover:scale-110 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </div>
             
             {/* Experience Badge */}
-            <div className="absolute -bottom-8 -left-8 bg-gradient-to-br from-blue-900 to-blue-800 text-white p-8 rounded-full shadow-2xl transform hover:scale-110 transition-all duration-500 hover:rotate-12 group">
+            <div className="absolute -bottom-4 sm:-bottom-8 -left-4 sm:-left-8 bg-gradient-to-br from-blue-900 to-blue-800 text-white p-4 sm:p-6 lg:p-8 rounded-full shadow-2xl transform hover:scale-110 transition-all duration-500 hover:rotate-12 group">
               <div className="text-center">
-                <div className="text-4xl font-bold group-hover:animate-pulse">{counters.years}</div>
-                <div className="text-sm font-semibold">YEARS</div>
-                <div className="text-sm font-semibold">EXPERIENCE</div>
+                <div className="text-2xl sm:text-3xl lg:text-4xl font-bold group-hover:animate-pulse">{counters.years}</div>
+                <div className="text-xs sm:text-sm font-semibold">YEARS</div>
+                <div className="text-xs sm:text-sm font-semibold">EXPERIENCE</div>
               </div>
               <div className="absolute inset-0 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-full opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
             </div>
 
             {/* Floating Elements */}
-            <div className="absolute top-4 right-4 bg-white p-4 rounded-full shadow-lg animate-float">
-              <div className="w-4 h-4 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-full animate-pulse"></div>
+            <div className="absolute top-4 right-4 bg-white p-3 sm:p-4 rounded-full shadow-lg animate-float">
+              <div className="w-3 h-3 sm:w-4 sm:h-4 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-full animate-pulse"></div>
             </div>
             
-            <div className="absolute top-1/2 -right-4 bg-gradient-to-br from-cyan-500 to-blue-600 p-3 rounded-full shadow-lg animate-float" style={{ animationDelay: '1s' }}>
-              <Star className="text-white" size={20} />
+            <div className="absolute top-1/2 -right-2 sm:-right-4 bg-gradient-to-br from-cyan-500 to-blue-600 p-2 sm:p-3 rounded-full shadow-lg animate-float" style={{ animationDelay: '1s' }}>
+              <Star className="text-white sm:w-5 sm:h-5" size={16} />
             </div>
           </div>
         </div>

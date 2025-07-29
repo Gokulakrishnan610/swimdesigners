@@ -54,7 +54,7 @@ const productData = [
         description: '',
       },
       {
-        name: 'Plastic Straight 10” Brush',
+        name: 'Plastic Straight 10" Brush',
         image: '/src/assets/product/1714996914851519.png',
         price: '',
         description: '',
@@ -96,36 +96,36 @@ const productData = [
 const ProductsPage = () => (
   <div className="bg-gray-50">
     {/* Hero Banner */}
-    <section className="relative h-[340px] md:h-[400px] flex items-center justify-center overflow-hidden" data-aos="fade-down" data-aos-duration="1200">
+    <section className="relative h-[280px] sm:h-[340px] md:h-[400px] flex items-center justify-center overflow-hidden" data-aos="fade-down" data-aos-duration="1200">
       <img
         src="https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?auto=compress&fit=crop&w=1500&q=80"
         alt="Products Banner"
         className="absolute inset-0 w-full h-full object-cover object-center opacity-80"
       />
       <div className="absolute inset-0 bg-blue-900/60" />
-      <div className="relative z-10 text-center">
-        <h1 className="text-4xl md:text-5xl font-extrabold text-white drop-shadow-lg mb-2">Products</h1>
+      <div className="relative z-10 text-center px-4">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white drop-shadow-lg mb-2">Products</h1>
       </div>
       {/* Decorative wave */}
       <svg className="absolute bottom-0 left-0 w-full" viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill="#f9fafb" d="M0,32L48,42.7C96,53,192,75,288,80C384,85,480,75,576,58.7C672,43,768,21,864,16C960,11,1056,21,1152,32C1248,43,1344,53,1392,58.7L1440,64L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"/></svg>
     </section>
 
     {/* Product Categories */}
-    <section className="max-w-7xl mx-auto px-4 py-12">
+    <section className="max-w-7xl mx-auto px-2 sm:px-4 py-8 sm:py-12">
       {productData.map((cat, i) => (
-        <div key={cat.category} className="mb-16">
-          <h2 className="text-2xl md:text-3xl font-bold text-blue-900 mb-8 text-center" data-aos="fade-up" data-aos-delay={i * 100}>{cat.category}</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+        <div key={cat.category} className="mb-12 sm:mb-16">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-blue-900 mb-6 sm:mb-8 text-center" data-aos="fade-up" data-aos-delay={i * 100}>{cat.category}</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-6 lg:gap-8">
             {cat.products.map((prod, j) => (
               <div
                 key={prod.name}
-                className="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col items-center p-4 hover:shadow-2xl transition-shadow duration-300"
+                className="bg-white rounded-xl sm:rounded-2xl shadow-lg overflow-hidden flex flex-col items-center p-3 sm:p-4 hover:shadow-2xl transition-shadow duration-300"
                 data-aos="zoom-in"
                 data-aos-delay={j * 80}
               >
-                <img src={prod.image} alt={prod.name} className="h-32 object-contain mb-4" />
-                <h3 className="text-lg font-semibold text-blue-900 mb-1 text-center">{prod.name}</h3>
-                {prod.price && <p className="text-sm text-blue-700 font-medium mb-1 text-center">Price: {prod.price}</p>}
+                <img src={prod.image} alt={prod.name} className="h-20 sm:h-24 md:h-28 lg:h-32 object-contain mb-3 sm:mb-4 w-full" />
+                <h3 className="text-sm sm:text-lg font-semibold text-blue-900 mb-1 text-center leading-tight">{prod.name}</h3>
+                {prod.price && <p className="text-xs sm:text-sm text-blue-700 font-medium mb-1 text-center">Price: {prod.price}</p>}
                 {prod.description && <p className="text-xs text-gray-600 text-center">{prod.description}</p>}
               </div>
             ))}

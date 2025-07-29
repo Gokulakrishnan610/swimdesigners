@@ -27,15 +27,15 @@ const Header = () => {
     <div className="fixed w-full z-50 top-0 left-0 transition-all duration-500">
       {/* Top Bar */}
       <div className="bg-blue-900 text-white py-2 px-4 text-sm animate-slideDown">
-        <div className="max-w-7xl mx-auto flex justify-between items-center">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center space-y-2 sm:space-y-0">
           <div className="flex items-center space-x-4">
             <div className="flex items-center space-x-2 animate-fadeInLeft">
               <Phone size={16} className="animate-pulse" />
-              <span>(491) -9176203070</span>
+              <span className="text-xs sm:text-sm">(491) -9176203070</span>
             </div>
           </div>
           <div className="flex items-center space-x-4 animate-fadeInRight">
-            <span className="hidden md:inline">Stay Connected :</span>
+            <span className="hidden md:inline text-sm">Stay Connected :</span>
             <div className="flex space-x-2">
               <Facebook size={16} className="hover:text-blue-300 cursor-pointer transition-all duration-300 hover:scale-125 hover:rotate-12" />
               <Linkedin size={16} className="hover:text-blue-300 cursor-pointer transition-all duration-300 hover:scale-125 hover:rotate-12" />
@@ -50,12 +50,12 @@ const Header = () => {
       <header className={`w-full transition-all duration-500 ${
         isScrolled
           ? 'bg-white/30 backdrop-blur-lg border-b border-white/30 shadow-xl py-2'
-          : 'bg-white/30 backdrop-blur-lg border-b border-white/30 shadow-xl py-4'
+          : 'bg-white/30 backdrop-blur-lg border-b border-white/30 shadow-xl py-2 sm:py-4'
       }`}>
         <div className="max-w-7xl mx-auto px-4 flex justify-between items-center">
           {/* Logo */}
           <div className="flex items-center animate-fadeInLeft">
-            <img src="/image/pic.png" alt="VENI ENTERPRISES Logo" className="h-16 w-auto object-contain" />
+            <img src="/image/pic.png" alt="VENI ENTERPRISES Logo" className="h-12 sm:h-16 w-auto object-contain" />
           </div>
 
           {/* Desktop Navigation */}
@@ -64,7 +64,7 @@ const Header = () => {
               <Link
                 key={item.name}
                 to={item.path}
-                className="text-gray-700 hover:text-blue-600 font-medium transition-all duration-300 relative group transform hover:scale-105"
+                className="text-gray-700 hover:text-blue-600 font-medium transition-all duration-300 relative group transform hover:scale-105 hover:shadow-sm"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 {item.name}
@@ -93,12 +93,12 @@ const Header = () => {
         <div className={`lg:hidden transition-all duration-500 overflow-hidden ${
           isMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
         }`}>
-          <nav className="bg-white border-t px-4 py-4 space-y-4 shadow-lg">
+          <nav className="bg-white border-t px-4 py-4 space-y-2 sm:space-y-4 shadow-lg">
             {navItems.map((item, index) => (
               <Link
                 key={item.name}
                 to={item.path}
-                className="block text-gray-700 hover:text-blue-600 font-medium transition-all duration-300 transform hover:translate-x-2 hover:scale-105 p-2 rounded-lg hover:bg-blue-50"
+                className="block text-gray-700 hover:text-blue-600 font-medium transition-all duration-300 transform hover:translate-x-2 hover:scale-105 p-2 sm:p-3 rounded-lg hover:bg-blue-50 hover:shadow-sm text-sm sm:text-base"
                 onClick={() => setIsMenuOpen(false)}
                 style={{ animationDelay: `${index * 50}ms` }}
               >
