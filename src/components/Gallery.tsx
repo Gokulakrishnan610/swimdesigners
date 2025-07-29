@@ -4,40 +4,50 @@ import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
 
-  const galleryImages = [
-    {
-      src: "https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?auto=compress&cs=tinysrgb&w=800",
-      alt: "Modern Pool Design"
-    },
-    {
-      src: "https://images.pexels.com/photos/1001965/pexels-photo-1001965.jpeg?auto=compress&cs=tinysrgb&w=800",
-      alt: "Luxury Resort Pool"
-    },
-    {
-      src: "https://images.pexels.com/photos/2417842/pexels-photo-2417842.jpeg?auto=compress&cs=tinysrgb&w=800",
-      alt: "Night Pool Lighting"
-    },
-    {
-      src: "https://images.pexels.com/photos/1174732/pexels-photo-1174732.jpeg?auto=compress&cs=tinysrgb&w=800",
-      alt: "Infinity Pool"
-    },
-    {
-      src: "https://images.pexels.com/photos/2034335/pexels-photo-2034335.jpeg?auto=compress&cs=tinysrgb&w=800",
-      alt: "Pool Construction"
-    },
-    {
-      src: "https://images.pexels.com/photos/1001965/pexels-photo-1001965.jpeg?auto=compress&cs=tinysrgb&w=800",
-      alt: "Pool Maintenance"
-    },
-    {
-      src: "https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?auto=compress&cs=tinysrgb&w=800",
-      alt: "Custom Pool Design"
-    },
-    {
-      src: "https://images.pexels.com/photos/2417842/pexels-photo-2417842.jpeg?auto=compress&cs=tinysrgb&w=800",
-      alt: "Pool Equipment"
-    }
-  ];
+  // Dynamically import all gallery images
+  const galleryImagesImport = import.meta.glob('/src/assets/gallery/*.{jpg,jpeg,png}', { eager: true });
+  const galleryImageEntries = Object.entries(galleryImagesImport).sort(([a], [b]) => a.localeCompare(b));
+  
+  // Use actual gallery images if available, otherwise fallback to placeholder images
+  const galleryImages = galleryImageEntries.length > 0 
+    ? galleryImageEntries.map(([path, mod], index) => ({
+        src: (mod as any).default,
+        alt: `Gallery Image ${index + 1}`
+      }))
+    : [
+        {
+          src: "https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?auto=compress&cs=tinysrgb&w=800",
+          alt: "Modern Pool Design"
+        },
+        {
+          src: "https://images.pexels.com/photos/1001965/pexels-photo-1001965.jpeg?auto=compress&cs=tinysrgb&w=800",
+          alt: "Luxury Resort Pool"
+        },
+        {
+          src: "https://images.pexels.com/photos/2417842/pexels-photo-2417842.jpeg?auto=compress&cs=tinysrgb&w=800",
+          alt: "Night Pool Lighting"
+        },
+        {
+          src: "https://images.pexels.com/photos/1174732/pexels-photo-1174732.jpeg?auto=compress&cs=tinysrgb&w=800",
+          alt: "Infinity Pool"
+        },
+        {
+          src: "https://images.pexels.com/photos/2034335/pexels-photo-2034335.jpeg?auto=compress&cs=tinysrgb&w=800",
+          alt: "Pool Construction"
+        },
+        {
+          src: "https://images.pexels.com/photos/1001965/pexels-photo-1001965.jpeg?auto=compress&cs=tinysrgb&w=800",
+          alt: "Pool Maintenance"
+        },
+        {
+          src: "https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?auto=compress&cs=tinysrgb&w=800",
+          alt: "Custom Pool Design"
+        },
+        {
+          src: "https://images.pexels.com/photos/2417842/pexels-photo-2417842.jpeg?auto=compress&cs=tinysrgb&w=800",
+          alt: "Pool Equipment"
+        }
+      ];
 
   const openLightbox = (index: number) => {
     setSelectedImage(index);
@@ -82,6 +92,10 @@ const Gallery = () => {
                 src={image.src}
                 alt={image.alt}
                 className="w-full h-48 sm:h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.src = 'https://via.placeholder.com/400x300?text=Gallery+Image';
+                }}
               />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-300 flex items-center justify-center">
                 <div className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">

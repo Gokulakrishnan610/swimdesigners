@@ -143,7 +143,7 @@ const About = () => {
           }`} style={{ animationDelay: '300ms' }}>
             <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl shadow-2xl group">
               <img
-                src="src/assets/gallery/17149847152680625.jpg"
+                src="https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?auto=compress&fit=crop&w=600&q=80"
                 alt="Swimming Pool Construction"
                 className="w-full h-64 sm:h-80 lg:h-96 object-cover group-hover:scale-110 transition-transform duration-700"
               />

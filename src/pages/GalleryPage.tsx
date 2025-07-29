@@ -47,6 +47,10 @@ const GalleryPage = () => {
                 alt={`Gallery ${i + 1}`}
                 className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-110 group-hover:rotate-1"
                 style={{ aspectRatio: '4/3' }}
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.src = 'https://via.placeholder.com/400x300?text=Gallery+Image';
+                }}
               />
               {/* Overlay on hover */}
               <div className="absolute inset-0 bg-gradient-to-t from-blue-900/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-3 sm:p-4">

@@ -128,6 +128,10 @@ const AboutPage = () => {
                   src={(module as any).default}
                   alt={`Product ${index + 1}`}
                   className="h-16 sm:h-20 md:h-24 lg:h-32 object-contain w-full"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.src = 'https://via.placeholder.com/200x200?text=Product+Image';
+                  }}
                 />
               </div>
             ))}
