@@ -1,84 +1,228 @@
 import React from 'react';
+import { Star, ArrowRight, PenTool, Settings, Waves, Shield, Zap, Award, CheckCircle } from 'lucide-react';
+import Header from '../components/Header';
+import Services from '../components/Services';
+import Quote from '../components/Quote';
+import Iridescence from '../components/Iridescence';
 
-const ServicesPage = () => (
-  <div className="bg-gray-50">
-    {/* Hero Banner */}
-    <section className="relative h-[340px] md:h-[400px] flex items-center justify-center overflow-hidden" data-aos="fade-down" data-aos-duration="1200">
-      <img
-        src="https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?auto=compress&fit=crop&w=1500&q=80"
-        alt="Services Banner"
-        className="absolute inset-0 w-full h-full object-cover object-center opacity-80"
-      />
-      <div className="absolute inset-0 bg-blue-900/60" />
-      <div className="relative z-10 text-center">
-        <h1 className="text-4xl md:text-5xl font-extrabold text-white drop-shadow-lg mb-2">Our Services</h1>
-        <p className="text-lg md:text-xl text-blue-100 font-medium">What we offer at Veni Enterprises</p>
-      </div>
-      {/* Decorative wave */}
-      <svg className="absolute bottom-0 left-0 w-full" viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill="#f9fafb" d="M0,32L48,42.7C96,53,192,75,288,80C384,85,480,75,576,58.7C672,43,768,21,864,16C960,11,1056,21,1152,32C1248,43,1344,53,1392,58.7L1440,64L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"/></svg>
-    </section>
+const ServicesPage = () => {
+  const services = [
+    {
+      icon: PenTool,
+      title: 'Pool Design & Consultation',
+      description: 'Expert consultation and custom design services for all types of swimming pools. From concept to completion, we bring your vision to life.',
+      features: ['Custom Designs', '3D Visualization', 'Expert Consultation', 'Site Analysis'],
+      image: 'https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop',
+      color: 'from-blue-500 to-cyan-400'
+    },
+    {
+      icon: Settings,
+      title: 'Pool Equipment & Accessories',
+      description: 'Complete range of premium pool equipment and accessories to enhance your swimming experience and ensure safety.',
+      features: ['Safety Equipment', 'Filtration Systems', 'Chemical Treatment', 'Automation'],
+      image: 'https://images.pexels.com/photos/1001965/pexels-photo-1001965.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop',
+      color: 'from-green-500 to-cyan-400'
+    },
+    {
+      icon: Waves,
+      title: 'Pool Construction',
+      description: 'Professional construction services with premium materials and expert craftsmanship for durable, beautiful pools.',
+      features: ['Premium Materials', 'Expert Installation', 'Quality Guaranteed', 'Timeline Management'],
+      image: 'https://images.pexels.com/photos/2417842/pexels-photo-2417842.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop',
+      color: 'from-purple-500 to-blue-400'
+    },
+    {
+      icon: Shield,
+      title: 'Pool Maintenance',
+      description: 'Comprehensive maintenance services to keep your pool pristine and safe throughout the year.',
+      features: ['Regular Cleaning', 'Water Treatment', 'Equipment Service', 'Seasonal Care'],
+      image: 'https://images.pexels.com/photos/1108572/pexels-photo-1108572.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop',
+      color: 'from-orange-500 to-red-400'
+    },
+    {
+      icon: Zap,
+      title: 'Waterproofing Solutions',
+      description: 'Advanced waterproofing materials and techniques to ensure your pool remains leak-free and durable.',
+      features: ['Premium Materials', 'Expert Application', 'Long-term Protection', 'Warranty'],
+      image: 'https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop',
+      color: 'from-indigo-500 to-purple-400'
+    },
+    {
+      icon: Award,
+      title: 'Spa Construction',
+      description: 'Luxury spa construction services to create your perfect relaxation oasis with premium features.',
+      features: ['Custom Spas', 'Premium Features', 'Relaxation Design', 'Hydrotherapy'],
+      image: 'https://images.pexels.com/photos/1001965/pexels-photo-1001965.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop',
+      color: 'from-pink-500 to-rose-400'
+    }
+  ];
 
-    {/* Services Sections */}
-    <section className="max-w-5xl mx-auto px-4 py-12 space-y-12">
-      {/* Swimming Pool Consultant and Contractor */}
-      <div className="bg-white rounded-3xl shadow-xl p-8 grid md:grid-cols-2 gap-8 items-center" data-aos="fade-up" data-aos-duration="1200">
-        <div>
-          <h2 className="text-2xl md:text-3xl font-bold text-blue-900 mb-4">Swimming Pool Consultant and Contractor</h2>
-          <p className="text-gray-700 mb-4 leading-relaxed">
-            We offer a first class design & construction service for all type of swimming pools. In turnkey projects, we provide various services like concept design, working drawings and design, excavation, construction, swimming pool waterproofing, glass mosaic tiling, filtration plant installation and commissioning of swimming pool with maximum satisfaction of the money you have spent.
+  return (
+    <div className="min-h-screen">
+      {/* Header */}
+      <Header />
+      
+      {/* Hero Section */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-32 md:pt-0">
+        {/* Iridescence Background */}
+        <div className="absolute inset-0 opacity-60">
+          <Iridescence 
+            color={[0.3, 0.7, 1.0]} // Brighter blue color
+            speed={0.6}
+            amplitude={0.1}
+            mouseReact={true}
+          />
+        </div>
+
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img
+            src="https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop"
+            alt="Services Background"
+            className="w-full h-full object-cover"
+          />
+          {/* Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-900/80 via-blue-800/60 to-cyan-700/70"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-blue-900/30"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+        </div>
+
+        {/* Background Elements */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-20 right-20 w-32 h-32 border-2 border-blue-500 rounded-full animate-spin-slow"></div>
+          <div className="absolute bottom-20 left-20 w-24 h-24 border-2 border-cyan-500 rounded-full animate-spin-slow" style={{ animationDirection: 'reverse' }}></div>
+        </div>
+
+        {/* Content */}
+        <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
+          <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm border border-white/20 px-4 py-2 rounded-full text-sm font-medium mb-6 shadow-lg">
+            <Star size={16} />
+            <span>Our Services</span>
+          </div>
+          
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
+            Comprehensive
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400"> Pool Solutions</span>
+            <br />
+            for Every Need
+          </h1>
+          
+          <p className="text-xl text-white/90 leading-relaxed mb-8 max-w-3xl mx-auto">
+            From design to maintenance, we provide complete swimming pool services with premium quality and expert craftsmanship.
           </p>
-          <ul className="list-disc pl-5 text-blue-800 space-y-1">
-            <li>Swimming Pool Designs</li>
-            <li>Swimming Pool Consultation</li>
-            <li>Swimming Pool Equipment</li>
-          </ul>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button className="group bg-gradient-to-r from-blue-600 to-cyan-500 text-white px-8 py-4 rounded-2xl font-semibold hover:shadow-2xl transition-all duration-300 hover:scale-105 transform flex items-center justify-center space-x-2">
+              <span>Explore Services</span>
+              <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform duration-300" />
+            </button>
+            
+            <button className="group bg-white/10 backdrop-blur-sm border border-white/20 text-white px-8 py-4 rounded-2xl font-semibold hover:bg-white hover:text-gray-900 transition-all duration-300 hover:scale-105">
+              <span>Get Quote</span>
+            </button>
+          </div>
         </div>
-        <div className="rounded-2xl overflow-hidden shadow-lg border-4 border-white">
-          <img src="https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?auto=compress&fit=crop&w=600&q=80" alt="Consultant" className="w-full h-64 object-cover" />
-        </div>
-      </div>
+      </section>
 
-      {/* Swimming Pool Equipments */}
-      <div className="bg-white rounded-3xl shadow-xl p-8 grid md:grid-cols-2 gap-8 items-center" data-aos="fade-up" data-aos-duration="1200">
-        <div className="order-2 md:order-1">
-          <h2 className="text-2xl md:text-3xl font-bold text-blue-900 mb-4">Swimming Pool Equipments</h2>
-          <p className="text-gray-700 mb-4 leading-relaxed">
-            Veni Enterprises offers the following Pool Accessories: Pool Safety Equipment, Ladders, Lounge Chairs, Lighting Solution, Chemical Treatment. Pool accessories are a way to inject fun into your pool and its surrounding area. A diving board or even an inflatable water slide can add hours of endless fun to a summer day.
-          </p>
-          <ul className="list-disc pl-5 text-blue-800 space-y-1">
-            <li>Pool Equipments</li>
-            <li>Readymade Swimming Pool</li>
-            <li>Swimming Pool Tiles</li>
-            <li>Swimming Pool Water Proofing</li>
-          </ul>
+      {/* Services Overview */}
+      <section className="py-20 bg-gradient-to-br from-gray-50 via-blue-50 to-cyan-50 relative overflow-hidden">
+        {/* Iridescence Background */}
+        <div className="absolute inset-0 opacity-60">
+          <Iridescence 
+            color={[0.3, 0.7, 1.0]} // Brighter blue color
+            speed={0.6}
+            amplitude={0.1}
+            mouseReact={true}
+          />
         </div>
-        <div className="order-1 md:order-2 rounded-2xl overflow-hidden shadow-lg border-4 border-white">
-          <img src="https://images.pexels.com/photos/1001965/pexels-photo-1001965.jpeg?auto=compress&fit=crop&w=600&q=80" alt="Equipments" className="w-full h-64 object-cover" />
-        </div>
-      </div>
 
-      {/* Swimming Pool Designs */}
-      <div className="bg-white rounded-3xl shadow-xl p-8 grid md:grid-cols-2 gap-8 items-center" data-aos="fade-up" data-aos-duration="1200">
-        <div>
-          <h2 className="text-2xl md:text-3xl font-bold text-blue-900 mb-4">Swimming Pool Designs</h2>
-          <p className="text-gray-700 mb-4 leading-relaxed">
-            We provide a wide range of swimming pool design ideas, including rooftop pools, in-ground pools, spa construction, and more. Our team specializes in modern swimming pool construction and designer services to bring your vision to life.
-          </p>
-          <ul className="list-disc pl-5 text-blue-800 space-y-1">
-            <li>Swimming Pool Construction</li>
-            <li>Rooftop Swimming Pool Construction</li>
-            <li>In Ground Pool</li>
-            <li>Spa Construction Services</li>
-            <li>Modern Swimming Pool Construction</li>
-            <li>Swimming Pool Designer</li>
-          </ul>
+        {/* Background Elements */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-20 right-20 w-32 h-32 border-2 border-blue-500 rounded-full animate-spin-slow"></div>
+          <div className="absolute bottom-20 left-20 w-24 h-24 border-2 border-cyan-500 rounded-full animate-spin-slow" style={{ animationDirection: 'reverse' }}></div>
         </div>
-        <div className="rounded-2xl overflow-hidden shadow-lg border-4 border-white">
-          <img src="https://images.pexels.com/photos/2417842/pexels-photo-2417842.jpeg?auto=compress&fit=crop&w=600&q=80" alt="Pool Designs" className="w-full h-64 object-cover" />
+
+        {/* Additional Gradient Overlays */}
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 via-transparent to-cyan-600/5"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-500/3 to-cyan-500/3"></div>
+
+        <div className="max-w-7xl mx-auto px-4 relative z-10">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-blue-600 to-cyan-500 text-white px-4 py-2 rounded-full text-sm font-medium mb-6 shadow-lg">
+              <Star size={16} />
+              <span>Service Categories</span>
+            </div>
+            <h2 className="text-4xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
+              What We
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500"> Offer</span>
+            </h2>
+            <p className="text-gray-600 text-lg max-w-3xl mx-auto leading-relaxed">
+              Comprehensive swimming pool services designed to meet all your needs, from initial design to ongoing maintenance.
+            </p>
+            <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-full mx-auto mt-8"></div>
+          </div>
+
+          <div className="grid lg:grid-cols-3 gap-8">
+            {services.map((service, index) => (
+              <div
+                key={index}
+                className="group bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-lg border border-white/50 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 relative overflow-hidden"
+              >
+                {/* Background Gradient */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}></div>
+                
+                <div className="relative z-10">
+                  <div className="flex items-start space-x-6">
+                    <div className={`w-16 h-16 bg-gradient-to-br ${service.color} rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
+                      <service.icon size={28} className="text-white" />
+                    </div>
+
+                    <div className="flex-1">
+                      <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors duration-300">
+                        {service.title}
+                      </h3>
+                      <p className="text-gray-600 mb-6 leading-relaxed">
+                        {service.description}
+                      </p>
+                      
+                      <div className="space-y-3 mb-6">
+                        {service.features.map((feature, featureIndex) => (
+                          <div key={featureIndex} className="flex items-center space-x-2">
+                            <CheckCircle size={16} className="text-blue-500" />
+                            <span className="text-sm text-gray-600 font-medium">{feature}</span>
+                          </div>
+                        ))}
+                      </div>
+                      
+                      <button className="group/btn flex items-center space-x-2 text-blue-600 font-semibold hover:text-blue-700 transition-colors duration-300">
+                        <span>Learn More</span>
+                        <ArrowRight size={16} className="group-hover/btn:translate-x-1 transition-transform duration-300" />
+                      </button>
+                    </div>
+                  </div>
+                  
+                  {/* Service Image */}
+                  <div className="mt-6 rounded-2xl overflow-hidden">
+                    <img
+                      src={service.image}
+                      alt={service.title}
+                      className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
-  </div>
-);
+      </section>
+
+      {/* Services Component */}
+      <Services />
+
+      {/* Quote Component */}
+      <Quote />
+    </div>
+  );
+};
 
 export default ServicesPage; 

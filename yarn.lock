@@ -575,13 +575,6 @@
   resolved "https://registry.npmjs.org/@types/estree/-/estree-1.0.6.tgz"
   integrity sha512-AYnb1nQyY49te+VRAVgmzfcgjYS91mY5P0TKUDCLEM+gNnA+3T6rWITXRLYCpahpqSQbN5cE+gHpnPyXjHWxcw==
 
-"@types/jquery@^3.5.32":
-  version "3.5.32"
-  resolved "https://registry.npmjs.org/@types/jquery/-/jquery-3.5.32.tgz"
-  integrity sha512-b9Xbf4CkMqS02YH8zACqN1xzdxc3cO735Qe5AbSUFmyOiaWAbcpqh9Wna+Uk0vgACvoQHpWDg2rGdHkYPLmCiQ==
-  dependencies:
-    "@types/sizzle" "*"
-
 "@types/json-schema@^7.0.15":
   version "7.0.15"
   resolved "https://registry.npmjs.org/@types/json-schema/-/json-schema-7.0.15.tgz"
@@ -613,11 +606,6 @@
   dependencies:
     "@types/prop-types" "*"
     csstype "^3.0.2"
-
-"@types/sizzle@*":
-  version "2.3.9"
-  resolved "https://registry.npmjs.org/@types/sizzle/-/sizzle-2.3.9.tgz"
-  integrity sha512-xzLEyKB50yqCUPUJkIsrVvoWNfFUbIZI+RspLWt8u+tIW/BetMBZtgV2LY/2o+tYH8dRvQ+eoPf3NdhQCcLE2w==
 
 "@typescript-eslint/eslint-plugin@8.8.1":
   version "8.8.1"
@@ -1415,12 +1403,7 @@ jiti@*, jiti@^1.21.6:
   resolved "https://registry.npmjs.org/jiti/-/jiti-1.21.6.tgz"
   integrity sha512-2yTgeWTWzMWkHu6Jp9NKgePDaYHbntiwvYuuJLbbN9vl7DC9DvXKOB2BC3ZZ92D3cvV/aflH0osDfwpHepQ53w==
 
-jquery.ripples@^0.6.3:
-  version "0.6.3"
-  resolved "https://registry.npmjs.org/jquery.ripples/-/jquery.ripples-0.6.3.tgz"
-  integrity sha512-ZZQtIoPdesJCx59eDpmbUThZs8HkAxNWG7eFogdziqwFx19oktRbC5XNIjY1PKbSx4YtmoQLHfbl4NHR1z9Wmw==
-
-jquery@^3.6.0, jquery@^3.7.1, jquery@>=1.7.0, jquery@>=1.8.0:
+jquery@>=1.8.0:
   version "3.7.1"
   resolved "https://registry.npmjs.org/jquery/-/jquery-3.7.1.tgz"
   integrity sha512-m4avr8yL8kmFN8psrbFFFmB/If14iN5o9nw/NgnnM+kybDJpRsAynV2BsfpTYrTRysYUdADVD7CkUUizgkpLfg==
@@ -1775,7 +1758,7 @@ queue-microtask@^1.2.2:
   resolved "https://registry.npmjs.org/queue-microtask/-/queue-microtask-1.2.3.tgz"
   integrity sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==
 
-"react-dom@^0.14.0 || ^15.0.1 || ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0", "react-dom@^16.8.0 || ^17 || ^18 || ^19", react-dom@^18.0.0, react-dom@^18.3.1, react-dom@>=18:
+"react-dom@^0.14.0 || ^15.0.1 || ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0", "react-dom@^16.8.0 || ^17 || ^18 || ^19", react-dom@^18.3.1, react-dom@>=18:
   version "18.3.1"
   resolved "https://registry.npmjs.org/react-dom/-/react-dom-18.3.1.tgz"
   integrity sha512-5m4nQKp+rZRb09LNH59GM4BxTh9251/ylbKIbpe7TpGxfJ+9kv6BLkLBXIjjspbgbnIBNqlI23tRnTWT0snUIw==
@@ -1814,17 +1797,7 @@ react-slick@^0.30.3:
     lodash.debounce "^4.0.8"
     resize-observer-polyfill "^1.5.0"
 
-react-water-wave@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.npmjs.org/react-water-wave/-/react-water-wave-2.0.1.tgz"
-  integrity sha512-+iu4pUzDebh2cIQbupzckCSAMok+dYx6hTOziVdLt2gIbB4erceMmlnzF2TmUg7FZDvFW7NJYWXEbfi7gzOsfA==
-  dependencies:
-    jquery "^3.6.0"
-    jquery.ripples "^0.6.3"
-    react "^18.0.0"
-    react-dom "^18.0.0"
-
-"react@^0.14.0 || ^15.0.1 || ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0", "react@^16.5.1 || ^17.0.0 || ^18.0.0", "react@^16.8.0 || ^17 || ^18 || ^19", react@^18.0.0, react@^18.3.1, react@>=18:
+"react@^0.14.0 || ^15.0.1 || ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0", "react@^16.5.1 || ^17.0.0 || ^18.0.0", "react@^16.8.0 || ^17 || ^18 || ^19", react@^18.3.1, react@>=18:
   version "18.3.1"
   resolved "https://registry.npmjs.org/react/-/react-18.3.1.tgz"
   integrity sha512-wS+hAgJShR0KhEvPJArfuPVN1+Hz1t0Y6n5jLrGQbkb4urgPE/0Rve+1kMB1v/oWgHgm4WIcV+i7F2pTVj+2iQ==

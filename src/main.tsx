@@ -5,13 +5,6 @@ import './index.css'
 import 'aos/dist/aos.css';
 import AOS from 'aos';
 
-// Import jQuery and jQuery.ripples
-import $ from 'jquery';
-import 'jquery.ripples';
-
-// Make jQuery available globally
-(window as any).$ = $;
-
 function Main() {
   React.useEffect(() => {
     AOS.init({ once: true });

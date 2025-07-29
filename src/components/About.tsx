@@ -1,173 +1,204 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { Award, Users, Clock, Star, CheckCircle } from 'lucide-react';
-import StarBorder from './StarBorder';
-import gallery1 from '../assets/gallery/17149847152680625.jpg';
+import React, { useEffect, useRef } from 'react';
+import { Star, ArrowRight, Shield, Zap, Users, Clock, Award, CheckCircle } from 'lucide-react';
+import Iridescence from './Iridescence';
+
 const About = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const [counters, setCounters] = useState({ years: 0, clients: 0, support: 24, quality: 0 });
-  const sectionRef = useRef<HTMLDivElement>(null);
+  const countersRef = useRef<HTMLDivElement>(null);
+  const counters = useRef<{ [key: string]: number }>({
+    projects: 0,
+    clients: 0,
+    rating: 0,
+    experience: 0
+  });
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
-          setIsVisible(true);
-          animateCounters();
-        }
-      },
-      { threshold: 0.3 }
-    );
+          const targets = {
+            projects: 1000,
+            clients: 500,
+            rating: 4.9,
+            experience: 11
+          };
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+          Object.keys(targets).forEach(key => {
+            const target = targets[key as keyof typeof targets];
+            const duration = 2000;
+            const increment = target / (duration / 16);
+            let current = 0;
+
+            const timer = setInterval(() => {
+              current += increment;
+              if (current >= target) {
+                current = target;
+                clearInterval(timer);
+              }
+              counters.current[key] = current;
+              
+              const element = document.getElementById(`counter-${key}`);
+              if (element) {
+                if (key === 'rating') {
+                  element.textContent = current.toFixed(1);
+                } else {
+                  element.textContent = Math.floor(current).toString();
+                }
+              }
+            }, 16);
+          });
+        }
+      });
+    });
+
+    if (countersRef.current) {
+      observer.observe(countersRef.current);
     }
 
     return () => observer.disconnect();
   }, []);
 
-  const animateCounters = () => {
-    const targets = { years: 11, clients: 500, support: 24, quality: 100 };
-    const duration = 2000;
-    const steps = 60;
-    const stepDuration = duration / steps;
-
-    let step = 0;
-    const timer = setInterval(() => {
-      step++;
-      const progress = step / steps;
-      const easeOut = 1 - Math.pow(1 - progress, 3);
-
-      setCounters({
-        years: Math.floor(targets.years * easeOut),
-        clients: Math.floor(targets.clients * easeOut),
-        support: targets.support,
-        quality: Math.floor(targets.quality * easeOut)
-      });
-
-      if (step >= steps) {
-        clearInterval(timer);
-        setCounters(targets);
-      }
-    }, stepDuration);
-  };
-
   const features = [
-    "World-class swimming pool services",
-    "11+ years of industry experience", 
-    "500+ satisfied customers",
-    "24/7 customer support",
-    "Premium quality materials",
-    "Professional installation team"
+    {
+      icon: Shield,
+      title: "Premium Quality Materials",
+      description: "Only the finest materials used in all our projects"
+    },
+    {
+      icon: Zap,
+      title: "Expert Installation",
+      description: "Professional team with 11+ years experience"
+    },
+    {
+      icon: Users,
+      title: "500+ Happy Clients",
+      description: "Trusted by customers nationwide"
+    },
+    {
+      icon: Clock,
+      title: "24/7 Support",
+      description: "Round the clock customer service"
+    },
+    {
+      icon: Award,
+      title: "Industry Certified",
+      description: "Meeting highest industry standards"
+    },
+    {
+      icon: Star,
+      title: "4.9/5 Rating",
+      description: "Consistently excellent reviews"
+    }
   ];
 
   return (
-    <section className="py-12 sm:py-16 md:py-20 bg-transparent" ref={sectionRef} data-aos="fade-up">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-20 left-20 w-32 h-32 border-2 border-blue-500 rounded-full animate-spin-slow"></div>
-        <div className="absolute bottom-20 right-20 w-24 h-24 border-2 border-cyan-500 rounded-full animate-spin-slow" style={{ animationDirection: 'reverse' }}></div>
+    <section className="py-20 bg-gradient-to-br from-gray-50 via-blue-50 to-cyan-50 relative overflow-hidden">
+      {/* Iridescence Background */}
+      <div className="absolute inset-0 opacity-50">
+        <Iridescence 
+          color={[0.25, 0.6, 1.0]} // Brighter blue color
+          speed={0.5}
+          amplitude={0.1}
+          mouseReact={false}
+        />
       </div>
 
+      {/* Background Elements */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute top-20 right-20 w-32 h-32 border-2 border-blue-500 rounded-full animate-spin-slow"></div>
+        <div className="absolute bottom-20 left-20 w-24 h-24 border-2 border-cyan-500 rounded-full animate-spin-slow" style={{ animationDirection: 'reverse' }}></div>
+      </div>
+
+      {/* Additional Gradient Overlays */}
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 via-transparent to-cyan-600/5"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-500/3 to-cyan-500/3"></div>
+
       <div className="max-w-7xl mx-auto px-4 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
-          <div className={`space-y-6 sm:space-y-8 transform transition-all duration-1000 ${
-            isVisible ? 'translate-x-0 opacity-100' : '-translate-x-20 opacity-0'
-          }`}>
-            <div>
-              <span className="text-blue-600 font-semibold text-lg animate-fadeInUp">Welcome</span>
-              <h2 className="text-4xl md:text-5xl font-bold text-white mt-2 leading-tight animate-slideInLeft">
-                ENJOY SAFE AND AFFORDABLE
-                <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 animate-gradient">
-                  DIVING AND SWIMMING WITH US!
-                </span>
-              </h2>
+          <div>
+            <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-blue-600 to-cyan-500 text-white px-4 py-2 rounded-full text-sm font-medium mb-6 shadow-lg">
+              <Star size={16} />
+              <span>About Us</span>
             </div>
+            
+            <h2 className="text-4xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
+              Leading
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500"> Pool Solutions</span>
+            </h2>
+            
+            <p className="text-gray-600 text-lg leading-relaxed mb-8">
+              With over 11 years of experience, Veni Enterprises has been at the forefront of swimming pool design, construction, and maintenance. We specialize in creating exceptional pool experiences using premium waterproofing materials. Our team of certified professionals ensures every project meets the highest industry standards.
+            </p>
 
-            <div className="space-y-4 sm:space-y-6">
-              <p className="text-white/90 text-lg leading-relaxed animate-fadeInUp" style={{ animationDelay: '200ms' }}>
-                Incorporated in the year 2013, Veni Enterprises is a trusted trader, supplier and service provider of swimming pool spare parts and construction services of swimming pools. Based at Tamil Nadu (India), we have garnered a huge client base by delivering world-class swimming pool services.
-              </p>
-
-              <p className="text-white/80 leading-relaxed animate-fadeInUp" style={{ animationDelay: '400ms' }}>
-                We are offering Swimming Pool Construction Services, swimming pool accessories, Branded water Proofing Materials etc. to our clients spread across the country. We have hired professionals, who have rich on-site construction knowledge and experience that enables us to meet the industrial standards in a significant manner.
-              </p>
-            </div>
-
-            {/* Features List */}
-            <div className="grid md:grid-cols-2 gap-4 animate-fadeInUp" style={{ animationDelay: '600ms' }}>
+            {/* Features Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
               {features.map((feature, index) => (
-                <div 
-                  key={index}
-                  className="flex items-center space-x-3 group hover:bg-white hover:shadow-lg p-3 rounded-lg transition-all duration-300 transform hover:scale-105"
-                  style={{ animationDelay: `${800 + index * 100}ms` }}
-                >
-                  <CheckCircle className="text-green-500 flex-shrink-0 group-hover:animate-pulse" size={20} />
-                  <span className="text-white/90 group-hover:text-white transition-colors">{feature}</span>
+                <div key={index} className="flex items-start space-x-3">
+                  <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg">
+                    <feature.icon size={20} className="text-white" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-gray-900 mb-1">{feature.title}</h3>
+                    <p className="text-sm text-gray-600">{feature.description}</p>
+                  </div>
                 </div>
               ))}
             </div>
 
-            {/* Stats */}
-            <div className="grid grid-cols-2 gap-4 sm:gap-6 pt-8">
-              {[
-                { icon: Award, value: counters.years, suffix: '+', label: 'Years Experience', color: 'text-blue-600', iconBg: 'bg-blue-100' },
-                { icon: Users, value: counters.clients, suffix: '+', label: 'Happy Clients', color: 'text-green-600', iconBg: 'bg-green-100' },
-                { icon: Clock, value: counters.support, suffix: '/7', label: 'Support', color: 'text-purple-600', iconBg: 'bg-purple-100' },
-                { icon: Star, value: counters.quality, suffix: '%', label: 'Quality', color: 'text-yellow-600', iconBg: 'bg-yellow-100' }
-              ].map((stat, index) => (
-                <div key={index} className="flex justify-center">
-                  <StarBorder
-                    className="w-[200px] h-[250px] sm:w-[220px] sm:h-[280px] flex flex-col items-center justify-center px-4 py-6 rounded-3xl shadow-xl border-none bg-transparent group transition-all duration-300 hover:scale-105"
-                    color="#60a5fa"
-                    speed="8s"
-                  >
-                    <div className={`flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 mb-4 sm:mb-6 rounded-full ${stat.iconBg} bg-white/40 backdrop-blur-md shadow-md`}>
-                      <stat.icon size={28} className={`${stat.color} sm:w-8 sm:h-8`} />
-                    </div>
-                    <div className="text-3xl sm:text-4xl font-extrabold text-white mb-2 sm:mb-3 tracking-tight">
-                      {stat.value}{stat.suffix}
-                    </div>
-                    <div className="text-white/80 text-sm sm:text-base font-medium text-center leading-tight px-2">
-                      {stat.label}
-                    </div>
-                  </StarBorder>
-                </div>
-              ))}
-            </div>
+            <button className="group bg-gradient-to-r from-blue-600 to-cyan-500 text-white px-8 py-4 rounded-2xl font-semibold hover:shadow-2xl transition-all duration-300 hover:scale-105 transform flex items-center space-x-2">
+              <span>Learn More About Us</span>
+              <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform duration-300" />
+            </button>
           </div>
 
-          {/* Right Content - Image with Experience Badge */}
-          <div className={`relative transform transition-all duration-1000 ${
-            isVisible ? 'translate-x-0 opacity-100' : 'translate-x-20 opacity-0'
-          }`} style={{ animationDelay: '300ms' }}>
-            <div className="relative overflow-hidden rounded-3xl shadow-2xl group">
-              <img
-                src={gallery1}
-                alt="Swimming Pool Construction"
-                className="w-full h-96 object-cover group-hover:scale-110 transition-transform duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-            </div>
-            
-            {/* Experience Badge */}
-            <div className="absolute -bottom-8 -left-8 bg-gradient-to-br from-blue-900 to-blue-800 text-white p-8 rounded-full shadow-2xl transform hover:scale-110 transition-all duration-500 hover:rotate-12 group">
-              <div className="text-center">
-                <div className="text-4xl font-bold group-hover:animate-pulse">{counters.years}</div>
-                <div className="text-sm font-semibold">YEARS</div>
-                <div className="text-sm font-semibold">EXPERIENCE</div>
+          {/* Right Content - Stats */}
+          <div ref={countersRef}>
+            <div className="grid grid-cols-2 gap-6">
+              <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 text-center shadow-lg border border-white/50 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                  <Award size={28} className="text-white" />
+                </div>
+                <div id="counter-projects" className="text-4xl font-bold text-gray-900 mb-2">0</div>
+                <div className="text-gray-600 font-medium">Projects Completed</div>
               </div>
-              <div className="absolute inset-0 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-full opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+              
+              <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 text-center shadow-lg border border-white/50 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-400 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                  <Users size={28} className="text-white" />
+                </div>
+                <div id="counter-clients" className="text-4xl font-bold text-gray-900 mb-2">0</div>
+                <div className="text-gray-600 font-medium">Happy Clients</div>
+              </div>
+              
+              <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 text-center shadow-lg border border-white/50 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-cyan-400 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                  <Star size={28} className="text-white" />
+                </div>
+                <div id="counter-rating" className="text-4xl font-bold text-gray-900 mb-2">0</div>
+                <div className="text-gray-600 font-medium">Customer Rating</div>
+              </div>
+              
+              <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 text-center shadow-lg border border-white/50 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-blue-400 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                  <Clock size={28} className="text-white" />
+                </div>
+                <div id="counter-experience" className="text-4xl font-bold text-gray-900 mb-2">0</div>
+                <div className="text-gray-600 font-medium">Years Experience</div>
+              </div>
             </div>
 
-            {/* Floating Elements */}
-            <div className="absolute top-4 right-4 bg-white p-4 rounded-full shadow-lg animate-float">
-              <div className="w-4 h-4 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-full animate-pulse"></div>
-            </div>
-            
-            <div className="absolute top-1/2 -right-4 bg-gradient-to-br from-cyan-500 to-blue-600 p-3 rounded-full shadow-lg animate-float" style={{ animationDelay: '1s' }}>
-              <Star className="text-white" size={20} />
+            {/* Image Section */}
+            <div className="mt-8 relative">
+              <img
+                src="https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
+                alt="Pool Construction"
+                className="w-full h-64 object-cover rounded-3xl shadow-2xl"
+              />
+              <div className="absolute -bottom-6 -right-6 bg-gradient-to-r from-blue-600 to-cyan-500 text-white px-6 py-4 rounded-2xl shadow-lg">
+                <div className="text-2xl font-bold">11+</div>
+                <div className="text-sm">Years of</div>
+                <div className="text-sm">Excellence</div>
+              </div>
             </div>
           </div>
         </div>

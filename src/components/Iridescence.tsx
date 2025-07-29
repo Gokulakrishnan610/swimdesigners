@@ -40,6 +40,10 @@ void main() {
   d += uTime * 0.5 * uSpeed;
   vec3 col = vec3(cos(uv * vec2(d, a)) * 0.6 + 0.4, cos(a + d) * 0.5 + 0.5);
   col = cos(col * cos(vec3(d, a, 2.5)) * 0.5 + 0.5) * uColor;
+  
+  // Enhance visibility by increasing color intensity
+  col = col * 1.5;
+  
   gl_FragColor = vec4(col, 1.0);
 }
 `;
@@ -66,7 +70,7 @@ export default function Iridescence({
     const ctn = ctnDom.current;
     const renderer = new Renderer();
     const gl = renderer.gl;
-    gl.clearColor(1, 1, 1, 1);
+    gl.clearColor(0, 0, 0, 0); // Transparent background
 
     let program: Program;
 
@@ -142,6 +146,7 @@ export default function Iridescence({
     <div
       ref={ctnDom}
       className="w-full h-full"
+      style={{ position: 'absolute', top: 0, left: 0 }}
       {...rest}
     />
   );
